@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: dev
+  password: PASs123
+
+development:
+  <<: *default
+  database: RooMic_development
+test:
+  <<: *default
+  database: RooMic_test
+
+production:
+  <<: *default
+  database: RooMic_production
+  username: RooMic
+  password: <%= ENV["PROJECT_DATABASE_PASSWORD"] %>
