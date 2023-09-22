@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: MyString
+  references: MyString
+  room_id: one
+  start_date: 2023-09-22
+  end_date: 2023-09-22
+
+two:
+  user_id: MyString
+  references: MyString
+  room_id: two
+  start_date: 2023-09-22
+  end_date: 2023-09-22
