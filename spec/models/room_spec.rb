@@ -2,7 +2,20 @@ require 'rails_helper'
 
 RSpec.describe Room, type: :model do
   subject do
-    Room.new(location: 'San Francisco', created_at: Time.now, updated_at: Time.now)
+    Room.create(
+      room_number: '101',
+      capacity: 4,
+      location: 'Building A',
+      floor: '1st Floor',
+      img: 'room1.jpg',
+      price_per_day: 100.00,
+      description: 'Cozy room with a view',
+      comment: 'Great room for a comfortable stay',
+      available: true,
+      rating: 4,
+      hosted_by: 'Host ABC',
+      likes: 10
+    )
   end
 
   it 'is valid with valid attributes' do
