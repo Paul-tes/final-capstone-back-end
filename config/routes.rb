@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :api do
+    namespace :v1 do
+      resources :rooms, only: [:index, :show, :create, :update, :destroy] do
+        collection do
+          get 'all', to: 'rooms#all'
+        end
+      end
+    end
+  end
 end
