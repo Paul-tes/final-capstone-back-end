@@ -10,7 +10,7 @@ class Api::V1::RoomsController < ApplicationController
     if @room
       render json: @room, status: :ok
     else
-      render json: { message: "Can\'t find a room with #{params[:id]} id" }, stauts: :ok
+      render json: { message: "Can't find a room with #{params[:id]} id" }, stauts: :ok
     end
   end
 
