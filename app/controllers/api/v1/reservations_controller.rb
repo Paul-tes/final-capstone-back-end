@@ -1,6 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    render json: current_user.reservation.includes([:room]).order(id: :desc), status: :ok
+    # render json: current_user.reservation.includes([:room]).order(id: :desc), status: :ok
   end
 
   def create
