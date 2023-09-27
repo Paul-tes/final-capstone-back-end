@@ -1,5 +1,6 @@
 class Api::V1::RoomsController < ApplicationController
   before_action :set_room, only: %i[show update]
+  before_action :authenticate_user!, only: %i[create update]
 
   def index
     @room = Room.where(available: true)
@@ -26,7 +27,7 @@ class Api::V1::RoomsController < ApplicationController
       comment: ' ',
       available: true,
       rating: 0,
-      hosted_by: 'User_1',
+      hosted_by: current_user.name,
       likes: 0
     )
 
