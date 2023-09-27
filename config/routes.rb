@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       resources :rooms, only: [:index, :show, :create, :update, :destroy] do
         collection do
           get 'all', to: 'rooms#all'
+          get 'my_rooms', to: 'rooms#my_rooms'
         end
       end
       resources :reservations, only: [:index, :create, :destroy]

@@ -69,6 +69,11 @@ class Api::V1::RoomsController < ApplicationController
     end
   end
 
+  def my_rooms
+    my_rooms = Room.where(hosted_by: current_user.name)
+    render json: my_rooms, status: :ok
+  end
+
   private
 
   def set_room
