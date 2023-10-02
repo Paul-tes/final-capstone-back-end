@@ -1,9 +1,3 @@
-# Sample User data
-User.create(name: "John Doe")
-User.create(name: "Jane Smith")
-User.create(name: "Michael Johnson")
-User.create(name: "Emily Davis")
-
 # Sample Room data
 Room.create(
   room_number: "101",
@@ -49,29 +43,4 @@ Room.create(
   hosted_by: "Host PQR",
   likes: 8
 )
-
-# Sample Reservation data
-Reservation.create(
-  user_id: User.first.id,
-  room_id: Room.first.id,
-  start_date: Date.today,
-  end_date: Date.today + 3
-)
-
-Reservation.create(
-  user_id: User.last.id,
-  room_id: Room.last.id,
-  start_date: Date.today + 1,
-  end_date: Date.today + 4
-)
-
-# Additional Reservation data
-3.times do
-  Reservation.create(
-    user_id: User.all.sample.id,
-    room_id: Room.all.sample.id,
-    start_date: Date.today + rand(5..10),
-    end_date: Date.today + rand(11..15)
-  )
-end
 
