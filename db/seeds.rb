@@ -25,7 +25,7 @@ Room.create(
   comment: "Highly recommended for a luxurious stay",
   available: true,
   rating: 5,
-  hosted_by: "Host XYZ",
+  hosted_by: "Kmana Hotel",
   likes: 5
 )
 
@@ -40,7 +40,7 @@ Room.create(
   comment: "Perfect for a relaxing getaway",
   available: true,
   rating: 4,
-  hosted_by: "Host PQR",
+  hosted_by: "Lasvegas Hotel",
   likes: 8
 )
 
