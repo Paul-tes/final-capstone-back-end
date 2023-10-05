@@ -20,7 +20,7 @@
 
 - [📝 License](#license)
 
-# 🏥 Houses Resrvation API <a name="about-project"></a>
+# 🏥 Room Resrvation API <a name="about-project"></a>
 
 > The Room Rental API allows users to create account and book new Room and can reserved the Room.
 
