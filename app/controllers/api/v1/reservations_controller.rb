@@ -9,6 +9,9 @@ class Api::V1::ReservationsController < ApplicationController
     reservation = Reservation.new(reservation_params)
     if reservation.save!
       render json: { message: "Reservation for #{current_user.name} has been successfullu created" }, status: :ok
+      room = Room.find_by(id: reservation_params[:room_id])
+      room.available = false
+      room.save
     else
       render json: { message: 'ERROR: Unable to create Reservation' }, status: :unprocessable_entity
     end
@@ -17,7 +20,9 @@ class Api::V1::ReservationsController < ApplicationController
   def destroy
     reservation = Reservation.find_by(id: params[:id])
     if reservation
-      if reservation.destroy
+      room = reservation.room
+      room.available = true
+      if reservation.destroy && room.save
         render json: { message: 'Reservation has been successfully deleted' }, status: :ok
       else
         render json: { message: 'ERROR: Unable to delete the Reservation' }, status: :unprocessable_entity

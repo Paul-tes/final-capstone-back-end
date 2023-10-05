@@ -6,8 +6,10 @@ class Api::V1::Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(resource, _opts = {})
+    current_token = request.env['warden-jwt_auth.token']
+
     render json: {
-      status: { code: 200, message: 'Logged in sucessfully.' },
+      status: { code: 200, message: 'Logged in sucessfully.', token: current_token },
       data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
     }, status: :ok
   end
