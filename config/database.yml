@@ -15,6 +15,4 @@ test:
 
 production:
   <<: *default
-  database: RooMic_production
-  username: RooMic
-  password: <%= ENV["PROJECT_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
