@@ -1,77 +1,46 @@
-# Sample User data
-User.create(name: "John Doe")
-User.create(name: "Jane Smith")
-User.create(name: "Michael Johnson")
-User.create(name: "Emily Davis")
-
 # Sample Room data
 Room.create(
   room_number: "101",
   capacity: 4,
-  location: "Building A",
+  location: "Lasvegas Tomson",
   floor: "1st Floor",
-  img: "room1.jpg",
+  img: "https://media.cnn.com/api/v1/images/stellar/prod/140127103345-peninsula-shanghai-deluxe-mock-up.jpg",
   price_per_day: 100.00,
   description: "Cozy room with a view",
   comment: "Great room for a comfortable stay",
   available: true,
   rating: 4,
-  hosted_by: "Host ABC",
+  hosted_by: "LasVegas Tomson toneto",
   likes: 10
 )
 
 Room.create(
   room_number: "201",
   capacity: 2,
-  location: "Building B",
+  location: "Ingland",
   floor: "2nd Floor",
-  img: "room2.jpg",
+  img: "https://cdn.loewshotels.com/loewshotels.com-2466770763/cms/cache/v2/5f5a6e0d12749.jpg/1920x1080/fit/80/86e685af18659ee9ecca35c465603812.jpg",
   price_per_day: 150.00,
   description: "Spacious and modern room",
   comment: "Highly recommended for a luxurious stay",
   available: true,
   rating: 5,
-  hosted_by: "Host XYZ",
+  hosted_by: "Kmana Hotel",
   likes: 5
 )
 
 Room.create(
   room_number: "301",
   capacity: 3,
-  location: "Building C",
+  location: "Lasvegas Mthona",
   floor: "3rd Floor",
-  img: "room3.jpg",
+  img: "https://cdn.loewshotels.com/loewshotels.com-2466770763/cms/cache/v2/5f5a6e0d12749.jpg/1920x1080/fit/80/86e685af18659ee9ecca35c465603812.jpg",
   price_per_day: 120.00,
   description: "Elegant room with a balcony",
   comment: "Perfect for a relaxing getaway",
   available: true,
   rating: 4,
-  hosted_by: "Host PQR",
+  hosted_by: "Lasvegas Hotel",
   likes: 8
 )
-
-# Sample Reservation data
-Reservation.create(
-  user_id: User.first.id,
-  room_id: Room.first.id,
-  start_date: Date.today,
-  end_date: Date.today + 3
-)
-
-Reservation.create(
-  user_id: User.last.id,
-  room_id: Room.last.id,
-  start_date: Date.today + 1,
-  end_date: Date.today + 4
-)
-
-# Additional Reservation data
-3.times do
-  Reservation.create(
-    user_id: User.all.sample.id,
-    room_id: Room.all.sample.id,
-    start_date: Date.today + rand(5..10),
-    end_date: Date.today + rand(11..15)
-  )
-end
 

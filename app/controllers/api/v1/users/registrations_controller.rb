@@ -7,8 +7,10 @@ class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
 
   def respond_with(resource, _opts = {})
     if request.method == 'POST' && resource.persisted?
+      current_token = request.env['warden-jwt_auth.token']
+
       render json: {
-        status: { code: 200, message: 'Signed up sucessfully.' },
+        status: { code: 200, message: 'Signed up successfully.', token: current_token },
         data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
       }, status: :ok
     elsif request.method == 'DELETE'

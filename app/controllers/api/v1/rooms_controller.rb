@@ -3,7 +3,7 @@ class Api::V1::RoomsController < ApplicationController
   before_action :authenticate_user!, only: %i[create update]
 
   def index
-    @room = Room.where(available: true)
+    @room = Room.all
     render json: @room, status: :ok
   end
 
@@ -21,7 +21,7 @@ class Api::V1::RoomsController < ApplicationController
       capacity: room_params[:capacity],
       location: room_params[:location],
       floor: room_params[:floor],
-      img: room_params[:img_url],
+      img: room_params[:img],
       price_per_day: room_params[:price].to_f,
       description: room_params[:description],
       comment: ' ',
@@ -32,7 +32,7 @@ class Api::V1::RoomsController < ApplicationController
     )
 
     if room.save!
-      render json: { message: 'Room has been successfully created' }, status: :ok
+      render json: room, status: :ok
     else
       render json: { message: 'ERROR: Unable to create the Room' }, status: :unprocessable_entity
     end
@@ -60,7 +60,7 @@ class Api::V1::RoomsController < ApplicationController
     room = Room.find_by(id: params[:id])
     if room
       if room.destroy
-        render json: { message: 'Room has been successfully deleted' }, status: 200
+        render json: room, status: 200, message: 'Room has been successfully deleted'
       else
         render json: { message: 'ERROR: Unable to delete the Room' }, status: :unprocessable_entity
       end
@@ -88,7 +88,7 @@ class Api::V1::RoomsController < ApplicationController
                                    room_no
                                    floor
                                    description
-                                   img_url
+                                   img
                                  ])
   end
 end
