@@ -20,7 +20,9 @@ class Api::V1::ReservationsController < ApplicationController
   def destroy
     reservation = Reservation.find_by(id: params[:id])
     if reservation
-      if reservation.destroy
+      room = reservation.room
+      room.available = true
+      if reservation.destroy && room.save
         render json: { message: 'Reservation has been successfully deleted' }, status: :ok
       else
         render json: { message: 'ERROR: Unable to delete the Reservation' }, status: :unprocessable_entity
