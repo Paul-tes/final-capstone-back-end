@@ -1,18 +1,18 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: RooMic
+    databaseName: roomic
+    user: roomic_user
 
 services:
   - type: web
-    name: mysite
+    name: RooMic App
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysite
+          name: roomic
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
