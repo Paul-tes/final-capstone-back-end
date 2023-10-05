@@ -108,7 +108,7 @@ To run the project redirecting to the root directory of the project and run the 
 - Twitter: [NasirMa35888225](https://twitter.com/NasirMa35888225)
 - LinkedIn: [nasirmahd](https://www.linkedin.com/in/nasirmahd/)
 
-👤 *Shalini Nayan*
+👤 **Shalini Nayan**
 
 - GitHub: [@ShaliniNayan](https://github.com/ShaliniNayan)
 - Twitter: [@sndprs](https://twitter.com/sndprs)
